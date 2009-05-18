@@ -30,6 +30,13 @@ class TestWeb < Test::Unit::TestCase
     search = BOSSMan::Search.images('"bridge"', { :count => 7 } )
     assert_equal(search.count, "7", "Image search did not return the correct number of results.")
   end
+
+  def test_inlinks_search
+    BOSSMan.application_id = 'xXySTCfV34HiWg67Cwwym2mvf4tUfLJS3B73thD5ws_xFbLYh6uVvNJmBZDDCoByFRIY'
+    search = BOSSMan::Search.inlinks('http://google.com', { :count => 1 } )
+    assert search.deephits.to_i > 0
+    assert_equal(search.count, "1", "Inlinks search did not return the correct number of results.")
+  end
   
   def test_yaml_output
     BOSSMan.application_id = 'xXySTCfV34HiWg67Cwwym2mvf4tUfLJS3B73thD5ws_xFbLYh6uVvNJmBZDDCoByFRIY'

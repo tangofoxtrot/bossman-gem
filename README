@@ -72,6 +72,19 @@ be submitted by using Lighthouse: http://pignata.lighthouseapp.com/projects/1576
 	boss = BOSSMan::Search.spelling("Diabretes")
 	
 	puts boss.suggestion
+
+
+=== In Links
+
+	require 'rubygems'
+	require 'bossman'
+	include BOSSMan
+	
+	BOSSMan.application_id = <Your Application ID>
+	
+	boss = BOSSMan::Search.inlinks("http://google.com")
+	
+	puts boss.deephits
 	
 == Output Objects
 

@@ -27,6 +27,12 @@ module BOSSMan
         options.merge!(return_options(options))
         return REST.get(method, query, options)
       end
+
+      def inlinks(query, options = {})    
+        method = "se_inlink"
+        options.merge!(return_options(options))
+        return REST.get(method, query, options)
+      end
       
       private
       def return_options(options)
